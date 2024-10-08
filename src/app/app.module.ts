@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SaladModule } from './salad/salad.module';
 import { OrderComponent } from './order/order.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, OrderComponent],
-  imports: [BrowserModule, AppRoutingModule, SaladModule],
+  imports: [BrowserModule, AppRoutingModule, SaladModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

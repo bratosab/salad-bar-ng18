@@ -1,1 +1,9 @@
-<p>order works!</p>
+<form [formGroup]="orderForm" (ngSubmit)="startOrder()">
+    <label for="name">Enter your name : </label>
+    <input type="text" id="name" formControlName="name">
+
+    <label for="tel">Enter your telephone : </label>
+    <input type="text" id="tel" formControlName="tel">
+
+    <button type="submit">Start order</button>
+</form>
