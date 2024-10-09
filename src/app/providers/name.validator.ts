@@ -4,7 +4,7 @@ import {
   AsyncValidator,
   ValidationErrors,
 } from '@angular/forms';
-import { map, Observable } from 'rxjs';
+import { debounceTime, map, Observable, of, switchMap, timer } from 'rxjs';
 import { SaladService } from './salad.service';
 
 @Injectable({
@@ -14,18 +14,24 @@ export class NameValidator implements AsyncValidator {
   constructor(private saladService: SaladService) {}
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
-    return this.saladService.getOrderNames().pipe(
-      map((names) => {
-        const found = names.some(
-          (value) => value.name.toLowerCase() === control.value.toLowerCase()
-        );
+    return of(control.value).pipe(
+      debounceTime(1000),
+      switchMap(() =>
+        this.saladService.getOrderNames().pipe(
+          map((names) => {
+            const found = names.some(
+              (value) =>
+                value.name.toLowerCase() === control.value.toLowerCase()
+            );
 
-        if (found) {
-          return { nameTaken: true };
-        } else {
-          return null;
-        }
-      })
+            if (found) {
+              return { nameTaken: true };
+            } else {
+              return null;
+            }
+          })
+        )
+      )
     );
   }
 }
