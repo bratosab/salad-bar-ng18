@@ -1,5 +1,13 @@
 <div class="toolbar">
   <div class="title">Salad Bar</div>
 </div>
-<h1>Hello, welcome to the best Salad Bar !</h1>
+<!-- <h1>Hello {{ name$ | async }}, welcome to the best Salad Bar !</h1> -->
+
+<h1 *ngIf="name$ | async as name; else hello">
+  Hello {{ name }}, welcome to the best Salad Bar !
+</h1>
+<ng-template #hello>
+  <h1>Hi ! I don't know you ?!!</h1>
+</ng-template>
+
 <router-outlet />

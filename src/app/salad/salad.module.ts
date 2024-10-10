@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { SaladRoutingModule } from './salad-routing.module';
 import { SaladComponent } from './salad.component';
 import { ToppingsComponent } from './toppings/toppings.component';
+import { StoreModule } from '@ngrx/store';
+import { saladReducer } from './store/salad.reducer';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ToppingsComponent } from './toppings/toppings.component';
   ],
   imports: [
     CommonModule,
-    SaladRoutingModule
+    SaladRoutingModule,
+    StoreModule.forFeature('salad', saladReducer)
   ]
 })
 export class SaladModule { }
