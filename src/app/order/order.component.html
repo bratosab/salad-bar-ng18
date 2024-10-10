@@ -1,10 +1,10 @@
 <form [formGroup]="orderForm" (ngSubmit)="startOrder()">
     <label for="name">Enter your name : </label>
-    <input type="text" id="name" formControlName="name">
+    <input type="text" id="name" formControlName="name" data-cy="name-input">
     <span *ngIf="nameControl?.errors?.['nameTaken']">Name already in use</span>
 
     <label for="tel">Enter your telephone : </label>
-    <input type="text" id="tel" formControlName="tel">
+    <input type="text" id="tel" formControlName="tel" data-cy="tel-input">
 
     <button type="submit">Start order</button>
 </form>
