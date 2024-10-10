@@ -6,6 +6,8 @@ import { SaladComponent } from './salad.component';
 import { ToppingsComponent } from './toppings/toppings.component';
 import { StoreModule } from '@ngrx/store';
 import { saladReducer } from './store/salad.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { loadToppings } from './store/salad.effects';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { saladReducer } from './store/salad.reducer';
   imports: [
     CommonModule,
     SaladRoutingModule,
-    StoreModule.forFeature('salad', saladReducer)
+    StoreModule.forFeature('salad', saladReducer),
+    EffectsModule.forFeature({ loadToppings })
   ]
 })
 export class SaladModule { }
