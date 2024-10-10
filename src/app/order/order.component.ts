@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NameValidator } from '../providers/name.validator';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.reducer';
 import { SetName, SetTel } from '../store/app.actions';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrl: './order.component.scss',
+    selector: 'app-order',
+    templateUrl: './order.component.html',
+    styleUrl: './order.component.scss',
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf],
 })
 export class OrderComponent {
   public orderForm!: FormGroup;

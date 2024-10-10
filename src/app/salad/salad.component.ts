@@ -4,9 +4,10 @@ import { SaladState } from './store/salad.reducer';
 import { GetToppings } from './store/salad.actions';
 
 @Component({
-  selector: 'app-salad',
-  templateUrl: './salad.component.html',
-  styleUrl: './salad.component.scss'
+    selector: 'app-salad',
+    templateUrl: './salad.component.html',
+    styleUrl: './salad.component.scss',
+    standalone: true
 })
 export class SaladComponent implements OnInit {
   private store = inject(Store<{ salad: SaladState}>)

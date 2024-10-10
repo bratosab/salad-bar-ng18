@@ -11,15 +11,13 @@ import { loadToppings } from './store/salad.effects';
 
 
 @NgModule({
-  declarations: [
-    SaladComponent,
-    ToppingsComponent
-  ],
-  imports: [
-    CommonModule,
-    SaladRoutingModule,
-    StoreModule.forFeature('salad', saladReducer),
-    EffectsModule.forFeature({ loadToppings })
-  ]
+    imports: [
+        CommonModule,
+        SaladRoutingModule,
+        StoreModule.forFeature('salad', saladReducer),
+        EffectsModule.forFeature({ loadToppings }),
+        SaladComponent,
+        ToppingsComponent
+    ]
 })
 export class SaladModule { }
