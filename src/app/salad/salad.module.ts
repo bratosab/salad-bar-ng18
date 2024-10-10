@@ -14,8 +14,6 @@ import { loadToppings } from './store/salad.effects';
     imports: [
         CommonModule,
         SaladRoutingModule,
-        StoreModule.forFeature('salad', saladReducer),
-        EffectsModule.forFeature({ loadToppings }),
         SaladComponent,
         ToppingsComponent
     ]
